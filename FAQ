@@ -1,0 +1,59 @@
+
+import React from "react";
+import { base44 } from "@/api/base44Client";
+import { useQuery } from "@tanstack/react-query";
+import FAQItem from "../components/FAQItem";
+import { HelpCircle } from "lucide-react";
+
+export default function FAQ() {
+  const { data: faqs = [], isLoading } = useQuery({
+    queryKey: ['faqs'],
+    queryFn: () => base44.entities.FAQ.list('order'),
+  });
+
+  return (
+    <div className="min-h-screen bg-[#FAF8F5] py-20">
+      <div className="max-w-4xl mx-auto px-8 lg:px-12">
+        {/* Header */}
+        <header className="text-center mb-20">
+          <div className="inline-block w-16 h-px bg-[var(--gold)] mb-8" aria-hidden="true" />
+          <h1 
+            className="text-4xl md:text-7xl text-[var(--navy)] mb-6"
+            style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300 }}
+          >
+            Frequently Asked
+          </h1>
+          <p className="text-lg text-gray-600 leading-relaxed" style={{ fontWeight: 300 }}>
+            Your questions, answered
+          </p>
+        </header>
+
+        {/* FAQs */}
+        {isLoading ? (
+          <div className="space-y-6">
+            {[1, 2, 3, 4, 5].map((i) => (
+              <div key={i} className="bg-white border border-[var(--gold)]/10 p-8 animate-pulse">
+                <div className="h-6 bg-gray-200 w-3/4 mb-3" />
+                <div className="h-4 bg-gray-200" />
+              </div>
+            ))}
+          </div>
+        ) : faqs.length > 0 ? (
+          <div className="space-y-6" role="list">
+            {faqs.map((faq, index) => (
+              <FAQItem key={faq.id} faq={faq} index={index} />
+            ))}
+          </div>
+        ) : (
+          <div className="text-center py-32">
+            <div className="bg-white border border-[var(--gold)]/10 p-16">
+              <p className="text-lg text-gray-600" style={{ fontWeight: 300 }}>
+                No FAQs available yet
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

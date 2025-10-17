@@ -1,0 +1,64 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { createPageUrl } from "@/utils";
+import { Badge } from "@/components/ui/badge";
+
+export default function ProductCard({ product }) {
+  return (
+    <Link
+      to={`${createPageUrl("ProductDetail")}?id=${product.id}`}
+      className="group block focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-[var(--gold)]"
+      aria-label={`View details for ${product.name}`}
+    >
+      <div 
+        className="relative overflow-hidden rounded-xl transition-all duration-500 group-hover:shadow-xl"
+        style={{
+          background: 'rgba(250, 248, 245, 0.85)',
+          border: '1px solid rgba(197, 162, 93, 0.25)',
+          boxShadow: '0 6px 20px rgba(0, 0, 0, 0.04)'
+        }}
+      >
+        <div className="aspect-square bg-gradient-to-b from-[#FAF8F5] to-white overflow-hidden">
+          <img
+            src={product.image_url}
+            alt={product.name}
+            className="w-full h-full object-contain p-12 group-hover:scale-105 transition-transform duration-700 ease-out"
+          />
+        </div>
+        
+        <div className="absolute top-0 right-0 p-4">
+          <Badge 
+            className="rounded-full text-[10px] tracking-wider px-3 py-1 transition-all" 
+            style={{ 
+              fontWeight: 300,
+              background: 'rgba(197, 162, 93, 0.9)',
+              color: 'white',
+              border: 'none'
+            }}
+          >
+            {product.brand}
+          </Badge>
+        </div>
+      </div>
+      
+      <div className="pt-6">
+        <p className="text-xs tracking-[0.2em] uppercase text-[var(--gold)] mb-2" style={{ fontWeight: 400 }}>
+          {product.category}
+        </p>
+        
+        <h3 className="text-xl text-[var(--navy)] mb-3 group-hover:text-[var(--gold)] transition-colors duration-300" style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400 }}>
+          {product.name}
+        </h3>
+        
+        <p className="text-sm text-gray-600 line-clamp-2 leading-relaxed" style={{ fontWeight: 300 }}>
+          {product.description}
+        </p>
+        
+        <div className="mt-4 flex items-center text-xs tracking-[0.2em] uppercase text-[var(--gold)] group-hover:gap-2 transition-all" style={{ fontWeight: 400 }}>
+          <span>Discover</span>
+          <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
+        </div>
+      </div>
+    </Link>
+  );
+}

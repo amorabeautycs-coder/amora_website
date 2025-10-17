@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ivory: #FAF8F5;
+    --gold: #C5A25D;
+    --navy: #1E2A39;
+    --rose-beige: #EADCC5;
+  }
+  
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    @apply font-sans font-light text-gray-700;
+    letter-spacing: 0.3px;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-normal;
+    letter-spacing: 0.5px;
+  }
+}
+
+@layer utilities {
+  .skip-link {
+    @apply absolute -top-10 left-0 bg-navy text-white px-4 py-2 z-[100] rounded-br;
+    text-decoration: none;
+  }
+  
+  .skip-link:focus {
+    @apply top-0;
+  }
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Font display swap for better performance */
+@font-face {
+  font-family: 'Cormorant Garamond';
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-display: swap;
+}
