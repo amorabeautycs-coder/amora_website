@@ -4,51 +4,90 @@ import ValuesSection from '@/components/ValuesSection';
 export default function About() {
   return (
     <div className="min-h-screen bg-ivory">
-      {/* Hero */}
+      {/* Hero with Background Image */}
       <section
-        className="relative py-32 bg-gradient-to-b from-white to-ivory"
+        className="relative h-[70vh] flex items-center justify-center overflow-hidden"
         aria-labelledby="about-hero-heading"
       >
-        <div className="max-w-4xl mx-auto px-8 lg:px-12 text-center">
-          <div className="inline-block w-16 h-px bg-gold mb-8" aria-hidden="true" />
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/about/HERO-BACKGROUND.png"
+            alt="Luxury skincare products on marble surface"
+            className="w-full h-full object-cover"
+          />
+          {/* Gradient Overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/30 via-navy/50 to-ivory" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 text-center px-6">
+          <div className="w-16 h-[1px] bg-gold/60 mx-auto mb-8" aria-hidden="true" />
           <h1
             id="about-hero-heading"
-            className="text-4xl md:text-7xl text-navy mb-8"
-            style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300 }}
+            className="text-6xl md:text-7xl font-light text-white mb-6 tracking-tight"
+            style={{ fontFamily: 'Cormorant Garamond, serif' }}
           >
             About Amora
           </h1>
-          <p className="text-lg text-gray-600 leading-relaxed" style={{ fontWeight: 300 }}>
+          <p className="text-xl md:text-2xl text-white/90 font-light max-w-2xl mx-auto">
             Where timeless beauty meets modern science
           </p>
         </div>
       </section>
 
-      {/* Story */}
-      <section className="py-32 bg-white" aria-labelledby="story-heading">
-        <div className="max-w-3xl mx-auto px-8 lg:px-12">
-          <h2 id="story-heading" className="sr-only">
-            Our Story
-          </h2>
-          <div className="prose prose-lg max-w-none text-gray-700 space-y-8" style={{ fontWeight: 300 }}>
-            <p className="text-xl leading-relaxed">
-              Amora by Organic Beauty was born from a simple belief: that everyone deserves access
-              to luxury skincare that delivers real, visible results.
-            </p>
+      {/* Brand Story - Split Layout with Image */}
+      <section className="py-24 bg-white" aria-labelledby="story-heading">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
 
-            <p className="leading-relaxed">
-              Our journey began with a passion for combining the best of nature with the latest
-              advances in skincare technology. Today, we're proud to offer two exceptional brands
-              under the Amora umbrella. Avologi brings you revolutionary FDA-cleared beauty devices
-              that harness the power of thermal LED light technology, while Formidabless delivers
-              premium skincare formulations blessed by nature and perfected by science.
-            </p>
+            {/* Image Side */}
+            <div className="relative h-[600px] rounded-2xl overflow-hidden order-2 md:order-1">
+              <img
+                src="/images/about/BRAND-STORY.png"
+                alt="Luxury skincare self-care moment"
+                className="w-full h-full object-cover"
+              />
+            </div>
 
-            <p className="leading-relaxed">
-              Our commitment to excellence has earned us numerous accolades, including prestigious
-              beauty awards and FDA clearances. But our greatest achievement is the trust and
-              satisfaction of our customers worldwide.
-            </p>
+            {/* Text Side */}
+            <div className="space-y-8 order-1 md:order-2">
+              <div>
+                <div className="w-12 h-[1px] bg-gold/30 mb-6" aria-hidden="true" />
+                <h2
+                  id="story-heading"
+                  className="text-4xl md:text-5xl font-light text-navy mb-6 tracking-tight"
+                  style={{ fontFamily: 'Cormorant Garamond, serif' }}
+                >
+                  Our Story
+                </h2>
+              </div>
+
+              <div className="space-y-6 text-base md:text-lg text-navy/70 leading-relaxed font-light">
+                <p>
+                  Amora by Organic Beauty was born from a simple belief: that everyone deserves
+                  access to luxury skincare that delivers real, visible results.
+                </p>
+
+                <p>
+                  Our journey began with a passion for combining the best of nature with the latest
+                  advances in skincare technology. Today, we're proud to offer two exceptional brands
+                  under the Amora umbrella.
+                </p>
+
+                <p>
+                  <strong className="text-navy font-normal">Avologi</strong> brings you revolutionary
+                  FDA-cleared beauty devices that harness the power of thermal LED light technology,
+                  while <strong className="text-navy font-normal">Formidabless</strong> delivers
+                  premium skincare formulations blessed by nature and perfected by science.
+                </p>
+
+                <p>
+                  Each product is a testament to our commitment to your skin's timeless beauty.
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -56,44 +95,66 @@ export default function About() {
       {/* Values */}
       <ValuesSection />
 
-      {/* Certifications */}
-      <section className="py-32 bg-white" aria-labelledby="certifications-heading">
-        <div className="max-w-4xl mx-auto px-8 lg:px-12">
-          <header className="text-center mb-16">
-            <div className="inline-block w-16 h-px bg-gold mb-8" aria-hidden="true" />
+      {/* Science + Nature Section */}
+      <section className="py-24 bg-ivory" aria-labelledby="science-heading">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <div className="w-16 h-[1px] bg-gold/30 mx-auto mb-8" aria-hidden="true" />
             <h2
-              id="certifications-heading"
-              className="text-4xl md:text-6xl text-navy"
-              style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300 }}
+              id="science-heading"
+              className="text-4xl md:text-5xl font-light text-navy mb-6 tracking-tight"
+              style={{ fontFamily: 'Cormorant Garamond, serif' }}
             >
-              Recognition
+              Science Meets Nature
             </h2>
-          </header>
-
-          <div
-            className="p-12 rounded-xl"
-            style={{
-              background: 'rgba(250, 248, 245, 0.85)',
-              border: '1px solid rgba(197, 162, 93, 0.25)',
-              boxShadow: '0 6px 20px rgba(0, 0, 0, 0.04)',
-            }}
-          >
-            <ul className="space-y-6 max-w-2xl mx-auto" role="list">
-              {[
-                'FDA Cleared Medical Device (Class II)',
-                'Beauty Awards Finalist',
-                'Patented Technology',
-                'Dermatologist Recommended',
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-start gap-4">
-                  <div className="w-1 h-1 bg-gold mt-2 flex-shrink-0" aria-hidden="true" />
-                  <span className="text-sm text-gray-700" style={{ fontWeight: 300 }}>
-                    {item}
-                  </span>
-                </li>
-              ))}
-            </ul>
+            <p className="text-lg text-navy/60 font-light max-w-2xl mx-auto">
+              Every formulation is a perfect marriage of botanical purity and scientific innovation
+            </p>
           </div>
+
+          {/* Science + Nature Image */}
+          <div className="max-w-4xl mx-auto mb-16">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img
+                src="/images/about/SCIENCE-NATURE.png"
+                alt="Natural ingredients and scientific precision"
+                className="w-full h-auto"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section with Background */}
+      <section className="relative py-24 overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src="/images/about/HERO-BACKGROUND.png"
+            alt="Discover our products"
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-ivory/80 via-ivory/90 to-ivory" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          <div className="w-16 h-[1px] bg-gold/40 mx-auto mb-8" aria-hidden="true" />
+          <h2
+            className="text-4xl md:text-5xl font-light text-navy mb-6 tracking-tight"
+            style={{ fontFamily: 'Cormorant Garamond, serif' }}
+          >
+            Experience Amora
+          </h2>
+          <p className="text-lg text-navy/70 font-light mb-10 max-w-2xl mx-auto">
+            Discover our collection of luxury skincare products and FDA-cleared beauty devices
+          </p>
+          <a
+            href="/products"
+            className="inline-block px-10 py-4 bg-gold text-white rounded-full font-light tracking-wide hover:bg-gold/90 transition-all duration-300 shadow-lg hover:shadow-xl"
+          >
+            Explore Our Products
+          </a>
         </div>
       </section>
     </div>

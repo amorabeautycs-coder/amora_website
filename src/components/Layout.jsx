@@ -52,24 +52,25 @@ export default function Layout() {
         Skip to main content
       </a>
 
-      {/* Header */}
+      {/* Header - THE TOP BAR IS SACRED GROUND */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ease-luxury ${
           isScrollingDown ? '-translate-y-full' : 'translate-y-0'
         } ${
           isScrolled
-            ? 'bg-ivory/98 backdrop-blur-sm shadow-[0_1px_0_rgba(197,162,93,0.1)]'
+            ? 'bg-ivory/90 backdrop-blur-luxury backdrop-saturate-luxury shadow-[0_1px_0_rgba(197,162,93,0.1)]'
             : 'bg-transparent'
         }`}
+        style={{ height: '80px' }}
         role="banner"
       >
         <nav
-          className="max-w-7xl mx-auto px-8 lg:px-12"
+          className="max-w-7xl mx-auto px-8 lg:px-12 h-full"
           role="navigation"
           aria-label="Main navigation"
         >
-          <div className="flex justify-between items-center h-24">
-            {/* Logo */}
+          <div className="flex justify-between items-center h-full">
+            {/* Logo - Navy, Size: 22px */}
             <Link
               to="/"
               className="group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold rounded-sm"
@@ -78,47 +79,53 @@ export default function Layout() {
               <img 
                 src="/images/logo.png" 
                 alt="Amora by Organic Beauty" 
-                className="h-12 w-auto object-contain transition-all duration-300 group-hover:scale-105"
+                className="h-[22px] w-auto object-contain transition-all duration-300 group-hover:scale-105"
                 style={{
-                  maxWidth: '200px',
+                  maxWidth: '180px',
                   filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05))'
                 }}
               />
             </Link>
 
-            {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-12">
+            {/* Desktop Navigation - Centered, 11px tracking */}
+            <div className="hidden lg:flex items-center gap-10">
               {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.url}
-                  className={`text-sm tracking-wider uppercase transition-colors relative py-1 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold rounded-sm ${
+                  className={`group text-[11px] uppercase transition-all duration-300 relative py-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold rounded-sm ${
                     location.pathname === link.url
                       ? 'text-gold'
                       : 'text-navy hover:text-gold'
                   }`}
-                  style={{ fontWeight: 300, letterSpacing: '0.15em' }}
+                  style={{ fontWeight: 400, letterSpacing: '0.12em' }}
                   aria-label={link.ariaLabel}
                   aria-current={location.pathname === link.url ? 'page' : undefined}
                 >
                   {link.name}
-                  {location.pathname === link.url && (
-                    <div className="absolute -bottom-1 left-0 right-0 h-px bg-gold" aria-hidden="true" />
-                  )}
+                  {/* Underline grows from center */}
+                  <span 
+                    className={`absolute left-1/2 -translate-x-1/2 bottom-0 h-[2px] bg-gold transition-all duration-300 ${
+                      location.pathname === link.url 
+                        ? 'w-full' 
+                        : 'w-0 group-hover:w-full'
+                    }`}
+                    aria-hidden="true"
+                  />
                 </Link>
               ))}
             </div>
 
+            {/* Outlined Gold Button */}
             <div className="hidden lg:block">
               <Link to="/contact">
-                <Button
-                  variant="outline"
-                  className="px-8 tracking-wider text-sm"
-                  style={{ fontWeight: 300, letterSpacing: '0.15em' }}
+                <button
+                  className="border-2 border-gold text-navy px-6 py-2 rounded-md text-[11px] uppercase font-semibold transition-all duration-600 ease-luxury hover:bg-gold hover:text-white hover:scale-102"
+                  style={{ letterSpacing: '0.12em' }}
                   aria-label="Get in touch with us"
                 >
                   Contact
-                </Button>
+                </button>
               </Link>
             </div>
 

@@ -6,6 +6,7 @@ import { dataClient } from '@/api/dataClient';
 import { Button } from '@/components/ui/button';
 import ProductCard from '@/components/ProductCard';
 import TestimonialCard from '@/components/TestimonialCard';
+import AmoraHero from '@/components/AmoraHero';
 
 export default function Home() {
   const { data: featuredProducts = [], isLoading: productsLoading } = useQuery({
@@ -20,100 +21,26 @@ export default function Home() {
 
   return (
     <div>
-      {/* Hero Section */}
+      {/* THE LUXURY HERO - Hermès. La Mer. Chanel. */}
+      <AmoraHero />
+
+      {/* Featured Products - WHITE SPACE IS THE MOST EXPENSIVE REAL ESTATE */}
       <section
-        className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-ivory to-rose-beige/20"
-        aria-labelledby="hero-heading"
-      >
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231E2A39' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }}
-          aria-hidden="true"
-        />
-
-        <div className="relative z-10 max-w-5xl mx-auto px-8 lg:px-12 text-center py-20">
-          <div className="mb-8">
-            <div className="inline-block px-6 py-2 border border-gold/30 rounded-full mb-8">
-              <span
-                className="text-xs tracking-[0.2em] uppercase text-gold"
-                style={{ fontWeight: 400 }}
-              >
-                Award-Winning Luxury Skincare
-              </span>
-            </div>
-          </div>
-
-          <h1
-            id="hero-heading"
-            className="text-5xl md:text-7xl lg:text-8xl text-navy mb-8 leading-tight"
-            style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300 }}
-          >
-            Timeless Beauty,
-            <br />
-            <span className="italic" style={{ fontWeight: 400 }}>
-              Modern Science
-            </span>
-          </h1>
-
-          <p
-            className="text-lg md:text-xl text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed"
-            style={{ fontWeight: 300 }}
-          >
-            Experience the perfect fusion of nature and innovation with Amora's
-            <br className="hidden md:block" />
-            luxury cosmetics collection
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-            <Link to="/products">
-              <Button
-                size="lg"
-                className="bg-gold hover:bg-gold/90 text-white px-10 py-6 text-sm tracking-wider uppercase shadow-lg hover:shadow-xl"
-                style={{ fontWeight: 400, letterSpacing: '0.15em' }}
-                aria-label="Browse our collection of luxury skincare products"
-              >
-                Explore Collection
-              </Button>
-            </Link>
-            <Link to="/about">
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-navy text-navy hover:bg-navy hover:text-white px-10 py-6 text-sm tracking-wider uppercase"
-                style={{ fontWeight: 300, letterSpacing: '0.15em' }}
-                aria-label="Learn about our story and values"
-              >
-                Our Story
-              </Button>
-            </Link>
-          </div>
-        </div>
-
-        {/* Decorative element */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent"
-          aria-hidden="true"
-        />
-      </section>
-
-      {/* Featured Products */}
-      <section
-        className="py-32 bg-gradient-to-b from-ivory to-white"
+        id="featured-collection"
+        className="section-luxury bg-gradient-to-b from-ivory to-white"
         aria-labelledby="featured-heading"
       >
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
+        <div className="container-luxury">
           <header className="text-center mb-20">
             <div className="inline-block w-16 h-px bg-gold mb-8" aria-hidden="true" />
             <h2
               id="featured-heading"
-              className="text-4xl md:text-6xl text-navy mb-6"
+              className="text-4xl md:text-6xl lg:text-7xl text-navy mb-6 text-shadow-luxury"
               style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300 }}
             >
               Featured Collection
             </h2>
-            <p className="text-lg text-gray-600" style={{ fontWeight: 300 }}>
+            <p className="text-lg md:text-xl text-gray-600 opacity-75" style={{ fontWeight: 300, lineHeight: '1.8' }}>
               Discover our most coveted formulations
             </p>
           </header>
@@ -156,19 +83,19 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-32 bg-white" aria-labelledby="testimonials-heading">
-        <div className="max-w-7xl mx-auto px-8 lg:px-12">
+      {/* Testimonials - THE PROOF IS IN THE PAUSE */}
+      <section className="section-luxury bg-white" aria-labelledby="testimonials-heading">
+        <div className="container-luxury">
           <header className="text-center mb-20">
             <div className="inline-block w-16 h-px bg-gold mb-8" aria-hidden="true" />
             <h2
               id="testimonials-heading"
-              className="text-4xl md:text-6xl text-navy mb-6"
+              className="text-4xl md:text-6xl lg:text-7xl text-navy mb-6 text-shadow-luxury"
               style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300 }}
             >
               Cherished by Our Community
             </h2>
-            <p className="text-lg text-gray-600" style={{ fontWeight: 300 }}>
+            <p className="text-lg md:text-xl text-gray-600 opacity-75" style={{ fontWeight: 300, lineHeight: '1.8' }}>
               Real transformations, genuine testimonials
             </p>
           </header>
@@ -193,9 +120,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* CTA Section - THE INVITATION */}
       <section
-        className="py-32 bg-navy text-white relative overflow-hidden"
+        className="section-luxury bg-navy text-white relative overflow-hidden"
         aria-labelledby="cta-heading"
       >
         <div
@@ -209,27 +136,25 @@ export default function Home() {
           <div className="inline-block w-16 h-px bg-gold mb-8" aria-hidden="true" />
           <h2
             id="cta-heading"
-            className="text-4xl md:text-6xl mb-8"
+            className="text-4xl md:text-6xl lg:text-7xl mb-8"
             style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 300 }}
           >
             Begin Your Journey
             <br />
-            <span className="italic" style={{ fontWeight: 400 }}>
+            <span className="italic" style={{ fontWeight: 300, opacity: 0.95 }}>
               to Radiant Skin
             </span>
           </h2>
-          <p className="text-lg mb-12 text-gray-300 leading-relaxed" style={{ fontWeight: 300 }}>
+          <p className="text-lg md:text-xl mb-12 text-gray-300 leading-[1.8] opacity-75" style={{ fontWeight: 300 }}>
             Discover personalized luxury skincare solutions
           </p>
           <Link to="/contact">
-            <Button
-              size="lg"
-              className="bg-gold hover:bg-gold/90 text-white px-10 py-6 text-sm tracking-wider uppercase shadow-lg hover:shadow-xl"
-              style={{ fontWeight: 400, letterSpacing: '0.15em' }}
+            <button
+              className="btn-luxury-primary"
               aria-label="Contact us to begin your skincare journey"
             >
               Get In Touch
-            </Button>
+            </button>
           </Link>
         </div>
       </section>

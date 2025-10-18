@@ -1,9 +1,13 @@
+/* LUXURY TYPOGRAPHY - As Seen on Avenue Montaigne */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
+    /* THE LUXURY PALETTE */
     --ivory: #FAF8F5;
     --gold: #C5A25D;
     --navy: #1E2A39;
@@ -13,16 +17,60 @@
   * {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
   
   body {
     @apply font-sans font-light text-gray-700;
     letter-spacing: 0.3px;
+    background-color: var(--ivory);
   }
   
   h1, h2, h3, h4, h5, h6 {
-    @apply font-serif font-normal;
-    letter-spacing: 0.5px;
+    @apply font-serif;
+    font-weight: 300;
+    letter-spacing: -0.01em;
+  }
+  
+  /* LUXURY SELECTION */
+  ::selection {
+    background-color: rgba(197, 162, 93, 0.2);
+    color: var(--navy);
+  }
+  
+  ::-moz-selection {
+    background-color: rgba(197, 162, 93, 0.2);
+    color: var(--navy);
+  }
+}
+
+@layer components {
+  /* LUXURY BUTTON STYLES */
+  .btn-luxury {
+    @apply px-10 py-4 text-sm uppercase font-semibold rounded-md;
+    letter-spacing: 0.15em;
+    transition: all 600ms cubic-bezier(0.23, 1, 0.32, 1);
+  }
+  
+  .btn-luxury:hover {
+    letter-spacing: 0.18em;
+    transform: scale(1.02);
+  }
+  
+  .btn-luxury-primary {
+    @apply btn-luxury bg-gold text-white shadow-lg;
+  }
+  
+  .btn-luxury-primary:hover {
+    box-shadow: 0 8px 24px rgba(197, 162, 93, 0.15);
+  }
+  
+  .btn-luxury-secondary {
+    @apply btn-luxury border-2 border-gold text-navy;
+  }
+  
+  .btn-luxury-secondary:hover {
+    @apply bg-gold text-white border-gold;
   }
 }
 
@@ -35,26 +83,39 @@
   .skip-link:focus {
     @apply top-0;
   }
-}
-
-/* Reduced motion preference */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
+  
+  /* WHITE SPACE IS THE MOST EXPENSIVE REAL ESTATE */
+  .section-luxury {
+    @apply py-32;
+  }
+  
+  .container-luxury {
+    @apply max-w-7xl mx-auto px-8 lg:px-12;
+  }
+  
+  /* TEXT SHADOW FOR LUXURY HEADLINES */
+  .text-shadow-luxury {
+    text-shadow: 0 2px 12px rgba(30, 42, 57, 0.08);
+  }
+  
+  .text-shadow-gold {
+    text-shadow: 0 2px 8px rgba(197, 162, 93, 0.1);
   }
 }
 
-/* Luxury Typography: Optimized Loading */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500&family=Inter:wght@300;400;500&display=swap');
-
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-display: swap;
+/* SCROLL BEHAVIOR - Smooth as Silk */
+html {
+  scroll-behavior: smooth;
 }
 
-@font-face {
-  font-family: 'Inter';
-  font-display: swap;
+/* REDUCED MOTION PREFERENCE - Accessibility First */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

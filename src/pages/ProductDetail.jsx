@@ -74,23 +74,30 @@ export default function ProductDetail() {
         </Link>
 
         {/* Product Detail */}
-        <article className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
+        <article className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           {/* Product Image */}
-          <div>
-            <div
-              className="aspect-square overflow-hidden rounded-xl"
-              style={{
-                border: '1px solid rgba(197, 162, 93, 0.25)',
-                boxShadow: '0 4px 16px rgba(0, 0, 0, 0.05)',
-              }}
-            >
+          <div className="relative inline-block overflow-hidden rounded-xl border border-[rgba(197,162,93,0.20)] bg-[rgba(250,248,245,0.9)] shadow-[0_4px_16px_rgba(0,0,0,0.03)]">
+            <div className="aspect-square bg-white overflow-hidden flex items-center justify-center rounded-xl">
               <img
                 src={getProductImageUrl(product.image_url)}
                 alt={`${product.name} - ${product.category} by ${product.brand}`}
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain"
                 width="800"
                 height="800"
               />
+            </div>
+            <div className="absolute top-0 right-0 p-4">
+              <Badge
+                className="rounded-full text-[10px] tracking-wider px-3 py-1 transition-all"
+                style={{
+                  fontWeight: 300,
+                  background: 'rgba(197, 162, 93, 0.9)',
+                  color: 'white',
+                  border: 'none',
+                }}
+              >
+                {product.brand}
+              </Badge>
             </div>
           </div>
 
@@ -154,18 +161,12 @@ export default function ProductDetail() {
             )}
 
             {/* Price */}
-            <div className="mb-12 pt-4">
+            <div className="mt-8">
               <p
-                className="text-navy"
-                style={{
-                  fontFamily: 'Inter, sans-serif',
-                  fontWeight: 300,
-                  fontSize: '15px',
-                  letterSpacing: '1px',
-                }}
-                aria-label={`Price: US$ ${product.price?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
+                className="text-xs font-extralight text-navy/60 tracking-wide"
+                aria-label={`Price: $${product.price?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
               >
-                {product.price?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} US$ 
+                ${product.price?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
               </p>
             </div>
 
