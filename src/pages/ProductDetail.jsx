@@ -163,9 +163,9 @@ export default function ProductDetail() {
                   fontSize: '15px',
                   letterSpacing: '1px',
                 }}
-                aria-label="Price: US$ 179"
+                aria-label={`Price: US$ ${product.price?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
               >
-                US$ 179
+                {product.price?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })} US$ 
               </p>
             </div>
 

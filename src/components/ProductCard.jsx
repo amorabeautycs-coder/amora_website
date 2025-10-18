@@ -19,11 +19,11 @@ export default function ProductCard({ product }) {
             boxShadow: '0 6px 20px rgba(0, 0, 0, 0.04)',
           }}
         >
-          <div className="aspect-square bg-gradient-to-b from-ivory to-white overflow-hidden">
+          <div className="aspect-square bg-white overflow-hidden flex items-center justify-center">
             <img
               src={getProductImageUrl(product.image_url)}
               alt={`${product.name} product image`}
-              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-out"
               loading="lazy"
               decoding="async"
               width="400"

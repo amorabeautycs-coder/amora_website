@@ -98,56 +98,6 @@ export default function Home() {
         />
       </section>
 
-      {/* Brand Values */}
-      <section className="py-32 bg-white" aria-labelledby="values-heading">
-        <div className="max-w-6xl mx-auto px-8 lg:px-12">
-          <h2 id="values-heading" className="sr-only">
-            Our Brand Values
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
-            {[
-              {
-                title: 'FDA Cleared',
-                desc: 'Medical-grade quality you can trust',
-                id: 'fda-cleared',
-              },
-              {
-                title: 'Award Winning',
-                desc: 'Recognized for excellence in skincare',
-                id: 'award-winning',
-              },
-              {
-                title: 'Nature & Science',
-                desc: 'Organic ingredients meet innovation',
-                id: 'nature-science',
-              },
-            ].map((value, idx) => (
-              <article key={idx} className="text-center group" aria-labelledby={value.id}>
-                <div
-                  className="w-16 h-16 mx-auto mb-6 rounded-xl flex items-center justify-center group-hover:border-gold transition-colors duration-300"
-                  style={{
-                    border: '1px solid rgba(197, 162, 93, 0.2)',
-                  }}
-                  aria-hidden="true"
-                >
-                  <div className="w-2 h-2 bg-gold" />
-                </div>
-                <h3
-                  id={value.id}
-                  className="text-xl mb-3 text-navy"
-                  style={{ fontFamily: 'Cormorant Garamond, serif', fontWeight: 400 }}
-                >
-                  {value.title}
-                </h3>
-                <p className="text-sm text-gray-600 leading-relaxed" style={{ fontWeight: 300 }}>
-                  {value.desc}
-                </p>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Featured Products */}
       <section
         className="py-32 bg-gradient-to-b from-ivory to-white"

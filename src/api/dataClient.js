@@ -7,6 +7,7 @@ const products = [
     name: 'Red Light Therapy Device',
     brand: 'Avologi',
     category: 'Devices',
+    price: 11950,
     description: 'Advanced red light therapy device for skin rejuvenation and collagen production. Clinical-grade technology for professional results at home.',
     key_benefits: [
       'Stimulates collagen production',
@@ -16,7 +17,7 @@ const products = [
       'Non-invasive and painless'
     ],
     usage_instructions: 'Use for 10-15 minutes daily on clean skin. Position 6-8 inches from face. Safe for all skin types.',
-    image_url: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=800&fit=crop',
+    image_url: '/images/products/eneo-totale-blu.jpg',
     featured: true
   },
   {
@@ -24,6 +25,7 @@ const products = [
     name: 'Microneedling Pen Pro',
     brand: 'Avologi',
     category: 'Devices',
+    price: 13900,
     description: 'Professional microneedling device with adjustable depth settings. Enhances product absorption and stimulates natural skin renewal.',
     key_benefits: [
       'Improves product penetration',
@@ -33,7 +35,7 @@ const products = [
       'Multiple speed settings'
     ],
     usage_instructions: 'Apply serum, use device in vertical and horizontal motions. Follow with hydrating serum. Use 1-2 times per week.',
-    image_url: '/images/products/Avologi Eneo Totale Kit.jpg',
+    image_url: '/images/products/avologi-eneo-totale-kit.jpg',
     featured: true
   },
   {
@@ -41,6 +43,7 @@ const products = [
     name: 'Vitamin C Brightening Serum',
     brand: 'Formidabless',
     category: 'Serums',
+    price: 400,
     description: 'Powerful antioxidant serum with 20% pure vitamin C. Brightens complexion and protects against environmental damage.',
     key_benefits: [
       'Brightens and evens skin tone',
@@ -50,7 +53,7 @@ const products = [
       'Lightweight, fast-absorbing formula'
     ],
     usage_instructions: 'Apply 3-4 drops to clean face morning and evening. Follow with moisturizer and SPF during day.',
-    image_url: 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=800&h=800&fit=crop',
+    image_url: '/images/products/vit-c-peeling.png',
     featured: true
   },
   {
@@ -58,6 +61,7 @@ const products = [
     name: 'Hyaluronic Acid Intensive Serum',
     brand: 'Formidabless',
     category: 'Serums',
+    price: 500,
     description: 'Multi-molecular hyaluronic acid serum that penetrates multiple skin layers for deep, lasting hydration.',
     key_benefits: [
       'Intense hydration at multiple levels',
@@ -67,7 +71,7 @@ const products = [
       'Suitable for all skin types'
     ],
     usage_instructions: 'Apply to damp skin after cleansing. Can be layered under other serums and moisturizers.',
-    image_url: 'https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?w=800&h=800&fit=crop',
+    image_url: '/images/products/eye-serum.png',
     featured: false
   },
   {
@@ -75,6 +79,7 @@ const products = [
     name: 'Retinol Night Treatment',
     brand: 'Formidabless',
     category: 'Treatments',
+    price: 500,
     description: 'Time-released retinol treatment that works overnight to reduce wrinkles and improve skin texture.',
     key_benefits: [
       'Reduces fine lines and wrinkles',
@@ -84,7 +89,7 @@ const products = [
       'Gentle, sustained release formula'
     ],
     usage_instructions: 'Apply at night to clean, dry skin. Start 2-3 times per week, gradually increase. Always use SPF during day.',
-    image_url: 'https://images.unsplash.com/photo-1571875257727-256c39da42af?w=800&h=800&fit=crop',
+    image_url: '/images/products/evening-peptide.jpg',
     featured: false
   },
   {
@@ -92,6 +97,7 @@ const products = [
     name: 'Nourishing Night Cream',
     brand: 'Formidabless',
     category: 'Creams',
+    price: 500,
     description: 'Rich, luxurious night cream that deeply nourishes and repairs skin while you sleep.',
     key_benefits: [
       'Deeply hydrates and nourishes',
@@ -101,7 +107,7 @@ const products = [
       'Wakes up to soft, glowing skin'
     ],
     usage_instructions: 'Apply generously to face and neck before bed. Massage in upward circular motions.',
-    image_url: 'https://images.unsplash.com/photo-1556228852-80c003a5f7c9?w=800&h=800&fit=crop',
+    image_url: '/images/products/night-cream.png',
     featured: false
   },
   {
@@ -109,6 +115,7 @@ const products = [
     name: 'Gentle Foaming Cleanser',
     brand: 'Formidabless',
     category: 'Cleansers',
+    price: 250,
     description: 'Gentle yet effective cleanser that removes impurities without stripping skin of natural oils.',
     key_benefits: [
       'Thoroughly cleanses without drying',
@@ -118,7 +125,7 @@ const products = [
       'Leaves skin soft and refreshed'
     ],
     usage_instructions: 'Apply to damp skin, massage gently in circular motions. Rinse thoroughly with lukewarm water. Use morning and evening.',
-    image_url: 'https://images.unsplash.com/photo-1556228852-8a74cf86710e?w=800&h=800&fit=crop',
+    image_url: '/images/products/facial-cleanser.png',
     featured: false
   },
   {
@@ -126,6 +133,7 @@ const products = [
     name: 'Balancing Toner',
     brand: 'Formidabless',
     category: 'Toners',
+    price: 250,
     description: 'Alcohol-free toner that balances skin pH and prepares skin for better product absorption.',
     key_benefits: [
       'Balances skin pH',
@@ -135,7 +143,7 @@ const products = [
       'Alcohol-free formula'
     ],
     usage_instructions: 'Apply to cotton pad or hands and pat onto clean face. Use morning and evening after cleansing.',
-    image_url: 'https://images.unsplash.com/photo-1556228995-51b525c06677?w=800&h=800&fit=crop',
+    image_url: '/images/products/facial-toner.png',
     featured: false
   },
   {
@@ -143,6 +151,7 @@ const products = [
     name: 'LED Face Mask',
     brand: 'Avologi',
     category: 'Devices',
+    price: 7050,
     description: 'Multi-color LED therapy mask targeting multiple skin concerns with professional-grade light technology.',
     key_benefits: [
       'Multiple light therapy modes',
@@ -152,7 +161,7 @@ const products = [
       'Safe for all skin types'
     ],
     usage_instructions: 'Wear for 10-20 minutes daily on clean skin. Choose appropriate light setting for your skin concern.',
-    image_url: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&h=800&fit=crop',
+    image_url: '/images/products/eneo-blu.jpg',
     featured: true
   }
 ];
