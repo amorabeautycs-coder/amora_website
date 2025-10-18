@@ -52,62 +52,91 @@ export default function Layout() {
         Skip to main content
       </a>
 
-      {/* Header - THE TOP BAR IS SACRED GROUND */}
+      {/* Header - EDITORIAL LUXURY CENTERED LAYOUT */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ease-luxury ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
           isScrollingDown ? '-translate-y-full' : 'translate-y-0'
         } ${
           isScrolled
-            ? 'bg-ivory/90 backdrop-blur-luxury backdrop-saturate-luxury shadow-[0_1px_0_rgba(197,162,93,0.1)]'
-            : 'bg-transparent'
+            ? 'bg-ivory/95 backdrop-blur-sm shadow-[0_2px_20px_rgba(0,0,0,0.03)] py-6'
+            : 'bg-ivory/95 backdrop-blur-sm py-8 md:py-12'
         }`}
-        style={{ height: '80px' }}
         role="banner"
       >
+        {/* Elegant bottom border - very subtle gold line */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/10 to-transparent" aria-hidden="true" />
+
         <nav
-          className="max-w-7xl mx-auto px-8 lg:px-12 h-full"
+          className="max-w-7xl mx-auto px-8 lg:px-12"
           role="navigation"
           aria-label="Main navigation"
         >
-          <div className="flex justify-between items-center h-full">
-            {/* Logo - Navy, Size: 22px */}
+          {/* CENTERED LOGO - Pristine Minimalist Approach */}
+          <div className="flex justify-center mb-6 md:mb-8">
             <Link
               to="/"
-              className="group focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold rounded-sm"
+              onClick={(e) => {
+                // Smooth scroll to top on logo click
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="group focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-gold/50 rounded-sm transition-all duration-300"
               aria-label="Amora by Organic Beauty - Return to homepage"
             >
-              <img 
-                src="/images/logo.png" 
-                alt="Amora by Organic Beauty" 
-                className="h-[22px] w-auto object-contain transition-all duration-300 group-hover:scale-105"
+              {/* Logo with elegant fade-in and scale animation on load */}
+              <img
+                src="/images/logo.png"
+                alt="Amora by Organic Beauty"
+                className={`object-contain transition-all duration-500 ease-out ${
+                  isScrolled
+                    ? 'h-[28px] md:h-[32px]'
+                    : 'h-[32px] md:h-[40px]'
+                } w-auto group-hover:brightness-110 group-hover:scale-[1.02]`}
                 style={{
-                  maxWidth: '180px',
-                  filter: 'drop-shadow(0 1px 2px rgba(0, 0, 0, 0.05))'
+                  maxWidth: '240px',
+                  filter: 'drop-shadow(0 2px 8px rgba(197, 162, 93, 0.08))',
+                  animation: 'logoFadeIn 0.8s ease-out forwards'
                 }}
               />
             </Link>
+          </div>
 
-            {/* Desktop Navigation - Centered, 11px tracking */}
-            <div className="hidden lg:flex items-center gap-10">
-              {navLinks.map((link) => (
+          {/* Optional tagline - uncomment for added sophistication */}
+          {/* <div className="text-center mb-6">
+            <p className="text-xs tracking-[0.2em] text-navy/40 uppercase font-light">
+              Timeless Beauty, Modern Science
+            </p>
+          </div> */}
+
+          {/* Desktop Navigation - Centered Below Logo */}
+          <div className="hidden lg:flex items-center justify-center">
+            <div className="flex items-center gap-12">
+              {navLinks.map((link, index) => (
                 <Link
                   key={link.name}
                   to={link.url}
-                  className={`group text-[11px] uppercase transition-all duration-300 relative py-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold rounded-sm ${
+                  className={`group text-sm uppercase transition-all duration-300 relative py-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold/50 rounded-sm font-medium ${
                     location.pathname === link.url
-                      ? 'text-gold'
-                      : 'text-navy hover:text-gold'
+                      ? 'text-navy'
+                      : 'text-navy/70 hover:text-navy'
                   }`}
-                  style={{ fontWeight: 400, letterSpacing: '0.12em' }}
+                  style={{
+                    letterSpacing: '0.15em',
+                    animation: `navFadeIn 0.6s ease-out ${index * 0.05}s forwards`,
+                    opacity: 0
+                  }}
                   aria-label={link.ariaLabel}
                   aria-current={location.pathname === link.url ? 'page' : undefined}
                 >
                   {link.name}
-                  {/* Underline grows from center */}
-                  <span 
-                    className={`absolute left-1/2 -translate-x-1/2 bottom-0 h-[2px] bg-gold transition-all duration-300 ${
-                      location.pathname === link.url 
-                        ? 'w-full' 
+
+                  {/* Gold underline - slides in from left on hover */}
+                  <span
+                    className={`absolute left-0 bottom-0 h-[2px] bg-gold transition-all duration-300 ease-in-out ${
+                      location.pathname === link.url
+                        ? 'w-full'
                         : 'w-0 group-hover:w-full'
                     }`}
                     aria-hidden="true"
@@ -115,72 +144,92 @@ export default function Layout() {
                 </Link>
               ))}
             </div>
+          </div>
 
-            {/* Outlined Gold Button */}
-            <div className="hidden lg:block">
-              <Link to="/contact">
-                <button
-                  className="border-2 border-gold text-navy px-6 py-2 rounded-md text-[11px] uppercase font-semibold transition-all duration-600 ease-luxury hover:bg-gold hover:text-white hover:scale-102"
-                  style={{ letterSpacing: '0.12em' }}
-                  aria-label="Get in touch with us"
-                >
-                  Contact
-                </button>
-              </Link>
-            </div>
+          {/* Mobile Layout - Logo centered, hamburger menu */}
+          <div className="lg:hidden flex items-center justify-between">
+            {/* Spacer for balance */}
+            <div className="w-10" />
 
-            {/* Mobile menu button */}
+            {/* Mobile menu button - centered visually */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="lg:hidden p-2 rounded-sm hover:bg-rose-beige/30 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+              className="p-2 rounded-sm hover:bg-beige/30 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-controls="mobile-menu"
             >
               {isMenuOpen ? (
-                <X className="w-5 h-5 text-navy" aria-hidden="true" />
+                <X className="w-6 h-6 text-navy" aria-hidden="true" />
               ) : (
-                <Menu className="w-5 h-5 text-navy" aria-hidden="true" />
+                <Menu className="w-6 h-6 text-navy" aria-hidden="true" />
               )}
             </button>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation - Elegant vertical layout */}
           {isMenuOpen && (
             <div
               id="mobile-menu"
-              className="lg:hidden py-6 border-t border-gold/10 bg-ivory"
+              className="lg:hidden pt-8 border-t border-gold/10 mt-8 bg-ivory"
               role="menu"
             >
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.url}
-                  className={`block px-4 py-4 text-sm uppercase tracking-wider transition-colors hover:bg-rose-beige/30 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold ${
-                    location.pathname === link.url ? 'text-gold' : 'text-navy'
-                  }`}
-                  style={{ fontWeight: 300, letterSpacing: '0.15em' }}
-                  role="menuitem"
-                  aria-label={link.ariaLabel}
-                  aria-current={location.pathname === link.url ? 'page' : undefined}
-                >
-                  {link.name}
-                </Link>
-              ))}
-              <div className="px-4 py-4">
-                <Link to="/contact">
-                  <Button
-                    variant="outline"
-                    className="w-full tracking-wider text-sm"
-                    aria-label="Get in touch with us"
+              <div className="flex flex-col items-center space-y-1">
+                {navLinks.map((link) => (
+                  <Link
+                    key={link.name}
+                    to={link.url}
+                    className={`block px-6 py-4 text-sm uppercase tracking-[0.15em] transition-all duration-300 hover:text-gold focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold rounded-sm font-medium ${
+                      location.pathname === link.url ? 'text-gold' : 'text-navy/70'
+                    }`}
+                    role="menuitem"
+                    aria-label={link.ariaLabel}
+                    aria-current={location.pathname === link.url ? 'page' : undefined}
                   >
-                    Contact
-                  </Button>
-                </Link>
+                    {link.name}
+                  </Link>
+                ))}
+
+                {/* Contact CTA in mobile menu */}
+                <div className="pt-4 pb-2">
+                  <Link to="/contact">
+                    <button
+                      className="border-2 border-gold text-navy px-8 py-3 rounded-md text-sm uppercase font-semibold tracking-[0.15em] transition-all duration-300 hover:bg-gold hover:text-white"
+                      aria-label="Get in touch with us"
+                    >
+                      Contact
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           )}
         </nav>
+
+        {/* CSS Animations - Elegant fade-in effects */}
+        <style jsx>{`
+          @keyframes logoFadeIn {
+            from {
+              opacity: 0;
+              transform: translateY(-10px) scale(0.95);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0) scale(1);
+            }
+          }
+
+          @keyframes navFadeIn {
+            from {
+              opacity: 0;
+              transform: translateY(5px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        `}</style>
       </header>
 
       {/* Main Content */}

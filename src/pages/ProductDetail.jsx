@@ -136,7 +136,7 @@ export default function ProductDetail() {
 
             {/* Key Benefits */}
             {product.key_benefits && product.key_benefits.length > 0 && (
-              <section className="mb-8" aria-labelledby="benefits-heading">
+              <section className="mb-12" aria-labelledby="benefits-heading">
                 <h2
                   id="benefits-heading"
                   className="text-xs tracking-[0.2em] uppercase text-navy mb-6"
@@ -161,14 +161,18 @@ export default function ProductDetail() {
             )}
 
             {/* Price */}
-            <div className="mt-8">
-              <p
-                className="text-xs font-extralight text-navy/60 tracking-wide"
-                aria-label={`Price: $${product.price?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`}
-              >
-                ${product.price?.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
-              </p>
-            </div>
+            <div className="mt-8 mb-6">
+                <p
+                  className="text-4xl md:text-5xl font-medium tracking-tight text-gold"
+                  style={{
+                    fontFamily: "'Cormorant Garamond', serif",
+                    textShadow: '0 1px 3px rgba(197, 162, 93, 0.2)',
+                  }}
+                  aria-label={`Price: ${product.price} dollars`}
+                >
+                  ${product.price?.toFixed(2)}
+                </p>
+              </div>
 
             {/* Usage Instructions */}
             {product.usage_instructions && (
