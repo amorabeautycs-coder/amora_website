@@ -1,31 +1,34 @@
 /**
- * Values data registry for Amora
- * Icons located in /public/images/values/
+ * Values data registry for Amora by Organic Beauty
+ * "Timeless Beauty, Modern Science"
+ *
+ * Icons: Pure SVG line art located in /public/images/values/
+ * Design Philosophy: La Mer luxury meets Aesop minimalism
  */
 
 export const VALUES = [
   {
     key: 'natural-excellence',
-    title: 'Pure & Organic',
-    desc: 'Sustainably sourced botanical ingredients, carefully selected for their potency and natural effectiveness.',
-    icon: '/images/values/netural.jpg',
+    title: 'Natural Excellence',
+    desc: 'We believe in harnessing the power of nature, combining organic ingredients with cutting-edge scientific research.',
+    icon: '/images/values/netural.svg',
   },
   {
     key: 'quality-assurance',
-    title: 'FDA Cleared',
-    desc: 'Medical-grade quality you can trust, backed by rigorous testing and clinical validation for your peace of mind.',
-    icon: '/images/values/quality-assurance.png',
+    title: 'Quality Assurance',
+    desc: 'Every product is FDA cleared and rigorously tested to ensure the highest standards of safety and efficacy.',
+    icon: '/images/values/quality-assurance.svg',
   },
   {
     key: 'innovation',
-    title: 'Science-Backed',
-    desc: 'Advanced biotechnology meets nature, creating transformative formulas with proven results.',
-    icon: '/images/values/innovation.png',
+    title: 'Innovation',
+    desc: 'Our patented technologies represent years of research and development in skincare science.',
+    icon: '/images/values/innovation.svg',
   },
   {
     key: 'customer-first',
-    title: 'Award Winning',
-    desc: 'Recognized for excellence in luxury skincare, our formulations have earned prestigious industry accolades.',
-    icon: '/images/values/customer-first.png',
+    title: 'Customer First',
+    desc: "Your satisfaction and skin health are our top priorities. We're here to support your beauty journey.",
+    icon: '/images/values/customer-first.svg',
   },
 ];
