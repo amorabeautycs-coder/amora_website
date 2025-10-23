@@ -52,109 +52,116 @@ export default function Layout() {
         Skip to main content
       </a>
 
-      {/* Header - EDITORIAL LUXURY CENTERED LAYOUT */}
+      {/* Header - COMPACT LUXURY LAYOUT (120-140px total height) */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out ${
+        className={`sticky top-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-gold/10 transition-all duration-300 ease-in-out ${
           isScrollingDown ? '-translate-y-full' : 'translate-y-0'
         } ${
           isScrolled
-            ? 'bg-ivory/95 backdrop-blur-sm shadow-[0_2px_20px_rgba(0,0,0,0.03)] py-6'
-            : 'bg-ivory/95 backdrop-blur-sm py-8 md:py-12'
+            ? 'shadow-[0_2px_20px_rgba(0,0,0,0.03)]'
+            : ''
         }`}
         role="banner"
       >
-        {/* Elegant bottom border - very subtle gold line */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/10 to-transparent" aria-hidden="true" />
-
         <nav
-          className="max-w-7xl mx-auto px-8 lg:px-12"
+          className="max-w-7xl mx-auto px-6 lg:px-8 py-4 md:py-5"
           role="navigation"
           aria-label="Main navigation"
         >
-          {/* CENTERED LOGO - Pristine Minimalist Approach */}
-          <div className="flex justify-center mb-6 md:mb-8">
+          {/* Desktop: Logo left, Nav center-right */}
+          <div className="hidden lg:flex items-center justify-between">
+            {/* Logo - Top Left */}
             <Link
               to="/"
               onClick={(e) => {
-                // Smooth scroll to top on logo click
                 if (window.location.pathname === '/') {
                   e.preventDefault();
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
-              className="group focus:outline-none focus:ring-2 focus:ring-offset-4 focus:ring-gold/50 rounded-sm transition-all duration-300"
+              className="group focus:outline-none focus:ring-2 focus:ring-gold/50 rounded-sm transition-all duration-300"
               aria-label="Amora by Organic Beauty - Return to homepage"
             >
-              {/* Logo with elegant fade-in and scale animation on load */}
+              {/* Logo - PNG with advanced background removal - BIGGER */}
               <img
                 src="/images/logo.png"
                 alt="Amora by Organic Beauty"
-                className={`object-contain transition-all duration-500 ease-out ${
+                className={`transition-all duration-300 ease-out group-hover:brightness-110 group-hover:scale-[1.02] ${
                   isScrolled
-                    ? 'h-[28px] md:h-[32px]'
-                    : 'h-[32px] md:h-[40px]'
-                } w-auto group-hover:brightness-110 group-hover:scale-[1.02]`}
+                    ? 'h-20 md:h-24'
+                    : 'h-24 md:h-28'
+                }`}
                 style={{
-                  maxWidth: '240px',
-                  filter: 'drop-shadow(0 2px 8px rgba(197, 162, 93, 0.08))',
-                  animation: 'logoFadeIn 0.8s ease-out forwards'
+                  width: 'auto',
+                  mixBlendMode: 'darken',
+                  filter: 'contrast(1.1) brightness(1.05)'
                 }}
               />
             </Link>
-          </div>
 
-          {/* Optional tagline - uncomment for added sophistication */}
-          {/* <div className="text-center mb-6">
-            <p className="text-xs tracking-[0.2em] text-navy/40 uppercase font-light">
-              Timeless Beauty, Modern Science
-            </p>
-          </div> */}
-
-          {/* Desktop Navigation - Centered Below Logo */}
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="flex items-center gap-12">
-              {navLinks.map((link, index) => (
+            {/* Desktop Navigation - Right side */}
+            <div className="flex items-center gap-8 md:gap-12">
+              {navLinks.map((link) => (
                 <Link
                   key={link.name}
                   to={link.url}
-                  className={`group text-sm uppercase transition-all duration-300 relative py-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold/50 rounded-sm font-medium ${
+                  className={`group text-sm md:text-base uppercase tracking-[0.15em] font-medium transition-all duration-300 relative py-2 focus:outline-none focus:ring-2 focus:ring-gold/50 rounded-sm ${
                     location.pathname === link.url
                       ? 'text-navy'
                       : 'text-navy/70 hover:text-navy'
                   }`}
-                  style={{
-                    letterSpacing: '0.15em',
-                    animation: `navFadeIn 0.6s ease-out ${index * 0.05}s forwards`,
-                    opacity: 0
-                  }}
                   aria-label={link.ariaLabel}
                   aria-current={location.pathname === link.url ? 'page' : undefined}
                 >
                   {link.name}
 
-                  {/* Gold underline - slides in from left on hover */}
-                  <span
-                    className={`absolute left-0 bottom-0 h-[2px] bg-gold transition-all duration-300 ease-in-out ${
-                      location.pathname === link.url
-                        ? 'w-full'
-                        : 'w-0 group-hover:w-full'
-                    }`}
-                    aria-hidden="true"
-                  />
+                  {/* Active indicator - gold bottom border */}
+                  {location.pathname === link.url ? (
+                    <span
+                      className="absolute left-0 bottom-0 w-full h-[2px] bg-gold"
+                      aria-hidden="true"
+                    />
+                  ) : (
+                    /* Hover underline - slides in from left */
+                    <span
+                      className="absolute left-0 bottom-0 h-[2px] bg-gold w-0 group-hover:w-full transition-all duration-300 ease-in-out"
+                      aria-hidden="true"
+                    />
+                  )}
                 </Link>
               ))}
             </div>
           </div>
 
-          {/* Mobile Layout - Logo centered, hamburger menu */}
+          {/* Mobile Layout - Logo left, Hamburger right */}
           <div className="lg:hidden flex items-center justify-between">
-            {/* Spacer for balance */}
-            <div className="w-10" />
+            {/* Logo - Mobile */}
+            <Link
+              to="/"
+              onClick={(e) => {
+                if (window.location.pathname === '/') {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+              className="group focus:outline-none focus:ring-2 focus:ring-gold/50 rounded-sm transition-all duration-300"
+              aria-label="Amora by Organic Beauty - Return to homepage"
+            >
+              <img
+                src="/images/logo.png"
+                alt="Amora by Organic Beauty"
+                className="h-16 w-auto transition-all duration-300 group-hover:brightness-110"
+                style={{
+                  mixBlendMode: 'darken',
+                  filter: 'contrast(1.1) brightness(1.05)'
+                }}
+              />
+            </Link>
 
-            {/* Mobile menu button - centered visually */}
+            {/* Hamburger menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-sm hover:bg-beige/30 transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold"
+              className="p-2 rounded-sm hover:bg-beige/30 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-controls="mobile-menu"
@@ -167,19 +174,19 @@ export default function Layout() {
             </button>
           </div>
 
-          {/* Mobile Navigation - Elegant vertical layout */}
+          {/* Mobile Navigation */}
           {isMenuOpen && (
             <div
               id="mobile-menu"
-              className="lg:hidden pt-8 border-t border-gold/10 mt-8 bg-ivory"
+              className="lg:hidden pb-6 border-t border-gold/10"
               role="menu"
             >
-              <div className="flex flex-col items-center space-y-1">
+              <div className="flex flex-col items-center space-y-1 pt-4">
                 {navLinks.map((link) => (
                   <Link
                     key={link.name}
                     to={link.url}
-                    className={`block px-6 py-4 text-sm uppercase tracking-[0.15em] transition-all duration-300 hover:text-gold focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gold rounded-sm font-medium ${
+                    className={`block px-6 py-3 text-sm uppercase tracking-[0.15em] font-medium transition-all duration-300 hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold rounded-sm ${
                       location.pathname === link.url ? 'text-gold' : 'text-navy/70'
                     }`}
                     role="menuitem"
@@ -189,51 +196,14 @@ export default function Layout() {
                     {link.name}
                   </Link>
                 ))}
-
-                {/* Contact CTA in mobile menu */}
-                <div className="pt-4 pb-2">
-                  <Link to="/contact">
-                    <button
-                      className="border-2 border-gold text-navy px-8 py-3 rounded-md text-sm uppercase font-semibold tracking-[0.15em] transition-all duration-300 hover:bg-gold hover:text-white"
-                      aria-label="Get in touch with us"
-                    >
-                      Contact
-                    </button>
-                  </Link>
-                </div>
               </div>
             </div>
           )}
         </nav>
-
-        {/* CSS Animations - Elegant fade-in effects */}
-        <style jsx>{`
-          @keyframes logoFadeIn {
-            from {
-              opacity: 0;
-              transform: translateY(-10px) scale(0.95);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0) scale(1);
-            }
-          }
-
-          @keyframes navFadeIn {
-            from {
-              opacity: 0;
-              transform: translateY(5px);
-            }
-            to {
-              opacity: 1;
-              transform: translateY(0);
-            }
-          }
-        `}</style>
       </header>
 
-      {/* Main Content */}
-      <main id="main-content" className="pt-24" role="main">
+      {/* Main Content - NO padding, hero starts immediately after header */}
+      <main id="main-content" role="main">
         <Outlet />
       </main>
 
