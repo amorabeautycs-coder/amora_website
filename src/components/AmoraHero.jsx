@@ -279,62 +279,25 @@ export function AmoraHero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={isLoaded ? { opacity: 1 } : {}}
-            transition={{ 
-              duration: 0.8, 
+            transition={{
+              duration: 0.8,
               delay: 1.6,
-              ease: [0.23, 1, 0.32, 1] 
+              ease: [0.23, 1, 0.32, 1]
             }}
             className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8"
           >
             {/* Primary CTA */}
             <Link to="/products">
-              <motion.div
-                whileHover={{ 
-                  scale: 1.02,
-                  boxShadow: '0 8px 24px rgba(197, 162, 93, 0.15)'
-                }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                className="group relative bg-gold text-white px-10 py-4 rounded-md shadow-lg text-sm uppercase font-semibold overflow-hidden"
-                style={{ 
-                  letterSpacing: '0.15em',
-                  fontWeight: 600 
-                }}
-              >
-                <motion.span
-                  className="relative z-10"
-                  whileHover={{ letterSpacing: '0.18em' }}
-                  transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  Explore Collection
-                </motion.span>
-              </motion.div>
+              <button className="btn-luxury-primary">
+                Explore Collection
+              </button>
             </Link>
-            
+
             {/* Secondary CTA */}
             <Link to="/about">
-              <motion.div
-                whileHover={{ 
-                  scale: 1.02,
-                  backgroundColor: 'rgba(197, 162, 93, 1)',
-                  color: '#FFFFFF',
-                  borderColor: 'rgba(197, 162, 93, 1)'
-                }}
-                whileTap={{ scale: 0.98 }}
-                transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                className="border-2 border-gold text-navy px-10 py-4 rounded-md text-sm uppercase font-semibold"
-                style={{ 
-                  letterSpacing: '0.15em',
-                  fontWeight: 600 
-                }}
-              >
-                <motion.span
-                  whileHover={{ letterSpacing: '0.18em' }}
-                  transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-                >
-                  Our Story
-                </motion.span>
-              </motion.div>
+              <button className="btn-luxury-secondary">
+                Our Story
+              </button>
             </Link>
           </motion.div>
         </div>

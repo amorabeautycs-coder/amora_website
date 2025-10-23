@@ -47,6 +47,11 @@ export default function About() {
                 src="/images/about/BRAND-STORY.png"
                 alt="Luxury skincare self-care moment"
                 className="w-full h-full object-cover"
+                style={{
+                  objectPosition: 'left center',
+                  transform: 'scale(1.15)',
+                  transformOrigin: 'left center'
+                }}
               />
             </div>
 

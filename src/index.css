@@ -67,10 +67,13 @@
   
   .btn-luxury-secondary {
     @apply btn-luxury border-2 border-gold text-navy;
+    background-color: transparent;
   }
-  
+
   .btn-luxury-secondary:hover {
-    @apply bg-gold text-white border-gold;
+    background-color: rgba(197, 162, 93, 0.08);
+    border-color: rgba(197, 162, 93, 0.8);
+    box-shadow: 0 8px 24px rgba(197, 162, 93, 0.12);
   }
 }
 
