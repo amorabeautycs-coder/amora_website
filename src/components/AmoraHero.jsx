@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { Link } from 'react-router-dom'
 
 // THE IMAGE CHOREOGRAPHY - Story Sequence
 const HERO_IMAGES = [
@@ -286,53 +287,55 @@ export function AmoraHero() {
             className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8"
           >
             {/* Primary CTA */}
-            <motion.a
-              href="/products"
-              whileHover={{ 
-                scale: 1.02,
-                boxShadow: '0 8px 24px rgba(197, 162, 93, 0.15)'
-              }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-              className="group relative bg-gold text-white px-10 py-4 rounded-md shadow-lg text-sm uppercase font-semibold overflow-hidden"
-              style={{ 
-                letterSpacing: '0.15em',
-                fontWeight: 600 
-              }}
-            >
-              <motion.span
-                className="relative z-10"
-                whileHover={{ letterSpacing: '0.18em' }}
+            <Link to="/products">
+              <motion.div
+                whileHover={{ 
+                  scale: 1.02,
+                  boxShadow: '0 8px 24px rgba(197, 162, 93, 0.15)'
+                }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                className="group relative bg-gold text-white px-10 py-4 rounded-md shadow-lg text-sm uppercase font-semibold overflow-hidden"
+                style={{ 
+                  letterSpacing: '0.15em',
+                  fontWeight: 600 
+                }}
               >
-                Explore Collection
-              </motion.span>
-            </motion.a>
+                <motion.span
+                  className="relative z-10"
+                  whileHover={{ letterSpacing: '0.18em' }}
+                  transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                >
+                  Explore Collection
+                </motion.span>
+              </motion.div>
+            </Link>
             
             {/* Secondary CTA */}
-            <motion.a
-              href="/about"
-              whileHover={{ 
-                scale: 1.02,
-                backgroundColor: 'rgba(197, 162, 93, 1)',
-                color: '#FFFFFF',
-                borderColor: 'rgba(197, 162, 93, 1)'
-              }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
-              className="border-2 border-gold text-navy px-10 py-4 rounded-md text-sm uppercase font-semibold"
-              style={{ 
-                letterSpacing: '0.15em',
-                fontWeight: 600 
-              }}
-            >
-              <motion.span
-                whileHover={{ letterSpacing: '0.18em' }}
+            <Link to="/about">
+              <motion.div
+                whileHover={{ 
+                  scale: 1.02,
+                  backgroundColor: 'rgba(197, 162, 93, 1)',
+                  color: '#FFFFFF',
+                  borderColor: 'rgba(197, 162, 93, 1)'
+                }}
+                whileTap={{ scale: 0.98 }}
                 transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                className="border-2 border-gold text-navy px-10 py-4 rounded-md text-sm uppercase font-semibold"
+                style={{ 
+                  letterSpacing: '0.15em',
+                  fontWeight: 600 
+                }}
               >
-                Our Story
-              </motion.span>
-            </motion.a>
+                <motion.span
+                  whileHover={{ letterSpacing: '0.18em' }}
+                  transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                >
+                  Our Story
+                </motion.span>
+              </motion.div>
+            </Link>
           </motion.div>
         </div>
       </div>

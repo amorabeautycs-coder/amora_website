@@ -52,25 +52,25 @@ export default function Layout() {
         Skip to main content
       </a>
 
-      {/* Header - COMPACT LUXURY LAYOUT (120-140px total height) */}
+      {/* Header - FROSTED GLASS LUXURY DESIGN */}
       <header
-        className={`sticky top-0 z-50 bg-ivory/95 backdrop-blur-sm border-b border-gold/10 transition-all duration-300 ease-in-out ${
+        className={`fixed top-0 w-full z-50 bg-white/60 backdrop-blur-lg border-b border-navy/5 transition-all duration-300 ease-in-out ${
           isScrollingDown ? '-translate-y-full' : 'translate-y-0'
         } ${
           isScrolled
-            ? 'shadow-[0_2px_20px_rgba(0,0,0,0.03)]'
+            ? 'shadow-[0_4px_24px_rgba(0,0,0,0.04)]'
             : ''
         }`}
         role="banner"
       >
         <nav
-          className="max-w-7xl mx-auto px-6 lg:px-8 py-4 md:py-5"
+          className="max-w-[1600px] mx-auto px-6 lg:px-10 py-4 lg:py-5"
           role="navigation"
           aria-label="Main navigation"
         >
-          {/* Desktop: Logo left, Nav center-right */}
+          {/* Desktop: Logo left, Nav right */}
           <div className="hidden lg:flex items-center justify-between">
-            {/* Logo - Top Left */}
+            {/* Logo - Clean Transparent PNG */}
             <Link
               to="/"
               onClick={(e) => {
@@ -79,58 +79,43 @@ export default function Layout() {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
-              className="group focus:outline-none focus:ring-2 focus:ring-gold/50 rounded-sm transition-all duration-300"
+              className="focus:outline-none transition-all duration-300 hover:scale-[1.03] hover:opacity-80"
               aria-label="Amora by Organic Beauty - Return to homepage"
             >
-              {/* Logo - PNG with advanced background removal - BIGGER */}
               <img
-                src="/images/logo.png"
+                src="/images/logo-cropped.png"
                 alt="Amora by Organic Beauty"
-                className={`transition-all duration-300 ease-out group-hover:brightness-110 group-hover:scale-[1.02] ${
+                className={`transition-all duration-300 ease-out ${
                   isScrolled
-                    ? 'h-20 md:h-24'
-                    : 'h-24 md:h-28'
+                    ? 'h-16 lg:h-18'
+                    : 'h-18 lg:h-20'
                 }`}
                 style={{
                   width: 'auto',
-                  mixBlendMode: 'darken',
-                  filter: 'contrast(1.1) brightness(1.05)'
+                  maxWidth: '280px'
                 }}
               />
             </Link>
 
-            {/* Desktop Navigation - Right side */}
-            <div className="flex items-center gap-8 md:gap-12">
+            {/* Desktop Navigation - Quiet Luxury Typography */}
+            <ul className="flex items-center gap-8 lg:gap-10">
               {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  to={link.url}
-                  className={`group text-sm md:text-base uppercase tracking-[0.15em] font-medium transition-all duration-300 relative py-2 focus:outline-none focus:ring-2 focus:ring-gold/50 rounded-sm ${
-                    location.pathname === link.url
-                      ? 'text-navy'
-                      : 'text-navy/70 hover:text-navy'
-                  }`}
-                  aria-label={link.ariaLabel}
-                  aria-current={location.pathname === link.url ? 'page' : undefined}
-                >
-                  {link.name}
-
-                  {/* Active indicator - gold bottom border */}
-                  {location.pathname === link.url ? (
-                    <span
-                      className="absolute left-0 bottom-0 w-full h-[2px] bg-gold"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    /* Hover underline - slides in from left */
-                    <span
-                      className="absolute left-0 bottom-0 h-[2px] bg-gold w-0 group-hover:w-full transition-all duration-300 ease-in-out"
-                      aria-hidden="true"
-                    />
-                  )}
-                </Link>
+                <li key={link.name}>
+                  <Link
+                    to={link.url}
+                    className={`text-sm font-medium tracking-[0.15em] uppercase transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-gold/30 rounded-sm inline-block ${
+                      location.pathname === link.url
+                        ? 'text-navy border-b-2 border-gold pb-1'
+                        : 'text-navy/65 hover:text-navy border-b-2 border-transparent hover:border-gold/50 pb-1'
+                    }`}
+                    aria-label={link.ariaLabel}
+                    aria-current={location.pathname === link.url ? 'page' : undefined}
+                  >
+                    {link.name}
+                  </Link>
+                </li>
               ))}
-            </div>
+            </ul>
           </div>
 
           {/* Mobile Layout - Logo left, Hamburger right */}
@@ -144,16 +129,15 @@ export default function Layout() {
                   window.scrollTo({ top: 0, behavior: 'smooth' });
                 }
               }}
-              className="group focus:outline-none focus:ring-2 focus:ring-gold/50 rounded-sm transition-all duration-300"
+              className="focus:outline-none transition-all duration-300 hover:scale-[1.03] hover:opacity-80"
               aria-label="Amora by Organic Beauty - Return to homepage"
             >
               <img
-                src="/images/logo.png"
+                src="/images/logo-cropped.png"
                 alt="Amora by Organic Beauty"
-                className="h-16 w-auto transition-all duration-300 group-hover:brightness-110"
+                className="h-16 w-auto transition-all duration-300"
                 style={{
-                  mixBlendMode: 'darken',
-                  filter: 'contrast(1.1) brightness(1.05)'
+                  maxWidth: '220px'
                 }}
               />
             </Link>
@@ -161,43 +145,56 @@ export default function Layout() {
             {/* Hamburger menu button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-sm hover:bg-beige/30 transition-colors focus:outline-none focus:ring-2 focus:ring-gold"
+              className="p-3 rounded-sm hover:bg-gold/10 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-gold/30"
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-controls="mobile-menu"
             >
               {isMenuOpen ? (
-                <X className="w-6 h-6 text-navy" aria-hidden="true" />
+                <X className="w-6 h-6 text-gold transition-colors duration-300" aria-hidden="true" />
               ) : (
-                <Menu className="w-6 h-6 text-navy" aria-hidden="true" />
+                <Menu className="w-6 h-6 text-gold transition-colors duration-300" aria-hidden="true" />
               )}
             </button>
           </div>
 
-          {/* Mobile Navigation */}
+          {/* Mobile Navigation - Enhanced with Overlay */}
           {isMenuOpen && (
-            <div
-              id="mobile-menu"
-              className="lg:hidden pb-6 border-t border-gold/10"
-              role="menu"
-            >
-              <div className="flex flex-col items-center space-y-1 pt-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.url}
-                    className={`block px-6 py-3 text-sm uppercase tracking-[0.15em] font-medium transition-all duration-300 hover:text-gold focus:outline-none focus:ring-2 focus:ring-gold rounded-sm ${
-                      location.pathname === link.url ? 'text-gold' : 'text-navy/70'
-                    }`}
-                    role="menuitem"
-                    aria-label={link.ariaLabel}
-                    aria-current={location.pathname === link.url ? 'page' : undefined}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+            <>
+              {/* Overlay backdrop */}
+              <div
+                className="fixed inset-0 bg-navy/20 backdrop-blur-md z-40 lg:hidden"
+                onClick={() => setIsMenuOpen(false)}
+                aria-hidden="true"
+              />
+
+              {/* Slide-in menu */}
+              <div
+                id="mobile-menu"
+                className="lg:hidden pb-6 border-t border-navy/5 relative z-50 bg-white/95 backdrop-blur-lg"
+                role="menu"
+              >
+                <ul className="flex flex-col items-center space-y-2 pt-6" role="list">
+                  {navLinks.map((link) => (
+                    <li key={link.name}>
+                      <Link
+                        to={link.url}
+                        className={`block px-8 py-3 text-[13px] uppercase tracking-[0.15em] font-medium transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-gold/30 rounded-sm ${
+                          location.pathname === link.url
+                            ? 'text-navy border-b-2 border-gold pb-[6px]'
+                            : 'text-navy/60 hover:text-navy border-b-2 border-transparent hover:border-gold/50 pb-[6px]'
+                        }`}
+                        role="menuitem"
+                        aria-label={link.ariaLabel}
+                        aria-current={location.pathname === link.url ? 'page' : undefined}
+                      >
+                        {link.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </div>
+            </>
           )}
         </nav>
       </header>
