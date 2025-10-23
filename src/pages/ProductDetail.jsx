@@ -161,18 +161,39 @@ export default function ProductDetail() {
             )}
 
             {/* Price */}
-            <div className="mt-8 mb-6">
-                <p
-                  className="text-4xl md:text-5xl font-medium tracking-tight text-gold"
-                  style={{
-                    fontFamily: "'Cormorant Garamond', serif",
-                    textShadow: '0 1px 3px rgba(197, 162, 93, 0.2)',
-                  }}
+            <div className="mt-8 mb-8 pt-8 border-t border-gold/20">
+              <div className="flex items-baseline gap-2">
+                <span
+                  className="text-xs tracking-[0.2em] uppercase text-gray-500"
+                  style={{ fontWeight: 300 }}
+                >
+                  Price
+                </span>
+              </div>
+              <div className="mt-3 flex items-baseline gap-1">
+                <span
+                  className="text-2xl text-gold"
+                  style={{ fontFamily: "'Lato', sans-serif", fontWeight: 300 }}
                   aria-label={`Price: ${product.price} dollars`}
                 >
-                  ${product.price?.toFixed(2)}
-                </p>
+                  $
+                </span>
+                <span
+                  className="text-3xl md:text-4xl text-gold tracking-tight"
+                  style={{ fontFamily: "'Lato', sans-serif", fontWeight: 300 }}
+                >
+                  {Math.floor(product.price)}
+                </span>
+                {product.price % 1 !== 0 && (
+                  <span
+                    className="text-lg text-gold/70"
+                    style={{ fontFamily: "'Lato', sans-serif", fontWeight: 300 }}
+                  >
+                    .{(product.price % 1).toFixed(2).slice(2)}
+                  </span>
+                )}
               </div>
+            </div>
 
             {/* Usage Instructions */}
             {product.usage_instructions && (
