@@ -25,7 +25,7 @@ export default function Contact() {
 
     try {
       await dataClient.integrations.Core.SendEmail({
-        to: 'info@amorabeauty.com',
+        to: 'Amorabeautycs@gmail.com',
         subject: `Contact Form: ${formData.name}`,
         body: `
           Name: ${formData.name}
@@ -176,7 +176,7 @@ export default function Contact() {
                     border: '1px solid rgba(197, 162, 93, 0.25)',
                     background: 'rgba(250, 248, 245, 0.5)',
                   }}
-                  placeholder="(555) 123-4567"
+                  placeholder="+1 (866) 242-9068"
                 />
               </div>
 
@@ -228,20 +228,20 @@ export default function Contact() {
               <div className="space-y-4 text-sm text-gray-600" style={{ fontWeight: 300 }}>
                 <p>
                   <a
-                    href="mailto:info@amorabeauty.com"
+                    href="mailto:Amorabeautycs@gmail.com"
                     className="hover:text-gold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold rounded-sm"
-                    aria-label="Email us at info@amorabeauty.com"
+                    aria-label="Email us at Amorabeautycs@gmail.com"
                   >
-                    info@amorabeauty.com
+                    Amorabeautycs@gmail.com
                   </a>
                 </p>
                 <p>
                   <a
                     href="tel:+15551234567"
                     className="hover:text-gold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold rounded-sm"
-                    aria-label="Call us at (555) 123-4567"
+                    aria-label="Call us at +1 (866) 242-9068"
                   >
-                    (555) 123-4567
+                    +1 (866) 242-9068
                   </a>
                 </p>
               </div>

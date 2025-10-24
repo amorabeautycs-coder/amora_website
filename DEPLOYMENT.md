@@ -171,7 +171,7 @@ With all optimizations implemented, you should see:
 
 ## 📞 Support
 
-Questions? Contact info@amorabeauty.com
+Questions? Contact Amorabeautycs@gmail.com
 
 ---
 

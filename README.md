@@ -256,8 +256,8 @@ All brand colors and typography are centralized in:
 ## 🤝 Support
 
 For issues or questions:
-- Email: info@amorabeauty.com
-- Phone: (555) 123-4567
+- Email: Amorabeautycs@gmail.com
+- Phone: +1 (866) 242-9068
 
 ## 📄 License
 

@@ -26,7 +26,7 @@ export default function Contact() {
 
     try {
       await base44.integrations.Core.SendEmail({
-        to: "info@amorabeauty.com",
+        to: "Amorabeautycs@gmail.com",
         subject: `Contact Form: ${formData.name}`,
         body: `
           Name: ${formData.name}
@@ -160,7 +160,7 @@ export default function Contact() {
                     border: '1px solid rgba(197, 162, 93, 0.25)',
                     background: 'rgba(250, 248, 245, 0.5)'
                   }}
-                  placeholder="(555) 123-4567"
+                  placeholder="+1 (866) 242-9068"
                 />
               </div>
 
@@ -203,8 +203,8 @@ export default function Contact() {
                 Contact
               </h2>
               <div className="space-y-4 text-sm text-gray-600" style={{ fontWeight: 300 }}>
-                <p>info@amorabeauty.com</p>
-                <p>(555) 123-4567</p>
+                <p>Amorabeautycs@gmail.com</p>
+                <p>+1 (866) 242-9068</p>
               </div>
             </div>
 

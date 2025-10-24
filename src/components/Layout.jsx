@@ -258,20 +258,20 @@ export default function Layout() {
               <address className="text-sm text-gray-300 not-italic space-y-2" style={{ fontWeight: 300 }}>
                 <p>
                   <a
-                    href="mailto:info@amorabeauty.com"
+                    href="mailto:Amorabeautycs@gmail.com"
                     className="hover:text-gold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold rounded-sm"
-                    aria-label="Email us at info@amorabeauty.com"
+                    aria-label="Email us at Amorabeautycs@gmail.com"
                   >
-                    info@amorabeauty.com
+                    Amorabeautycs@gmail.com
                   </a>
                 </p>
                 <p>
                   <a
                     href="tel:+15551234567"
                     className="hover:text-gold transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gold rounded-sm"
-                    aria-label="Call us at (555) 123-4567"
+                    aria-label="Call us at +1 (866) 242-9068"
                   >
-                    (555) 123-4567
+                    +1 (866) 242-9068
                   </a>
                 </p>
               </address>
