@@ -267,8 +267,8 @@ export default function Layout({ children, currentPageName }) {
                 Connect
               </h3>
               <address className="text-sm text-gray-300 not-italic space-y-2" style={{ fontWeight: 300 }}>
-                <p>info@amorabeauty.com</p>
-                <p>(555) 123-4567</p>
+                <p>Amorabeautycs@gmail.com</p>
+                <p>+1 (866) 242-9068</p>
               </address>
             </div>
           </div>
