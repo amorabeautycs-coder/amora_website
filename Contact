@@ -213,9 +213,7 @@ export default function Contact() {
                 Address
               </h2>
               <address className="text-sm text-gray-600 not-italic leading-relaxed" style={{ fontWeight: 300 }}>
-                123 Beauty Boulevard<br />
-                Suite 456<br />
-                Los Angeles, CA 90001
+                3663 Las Vegas Blvd S. Las Vegas, NV 89109
               </address>
             </div>
 
@@ -232,16 +230,32 @@ export default function Contact() {
               </h2>
               <div className="space-y-3 text-sm" style={{ fontWeight: 300 }}>
                 <div className="flex justify-between text-gray-600">
-                  <span>Monday - Friday</span>
-                  <span>9:00 AM - 6:00 PM</span>
+                  <span>Monday</span>
+                  <span>10:00 AM - 9:00 PM</span>
+                </div>
+                <div className="flex justify-between text-gray-600">
+                  <span>Tuesday</span>
+                  <span>10:00 AM - 9:00 PM</span>
+                </div>
+                <div className="flex justify-between text-gray-600">
+                  <span>Wednesday</span>
+                  <span>10:00 AM - 9:00 PM</span>
+                </div>
+                <div className="flex justify-between text-gray-600">
+                  <span>Thursday</span>
+                  <span>10:00 AM - 9:00 PM</span>
+                </div>
+                <div className="flex justify-between text-gray-600">
+                  <span>Friday</span>
+                  <span>9:00 AM - 9:00 PM</span>
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Saturday</span>
-                  <span>10:00 AM - 4:00 PM</span>
+                  <span>9:00 AM - 9:00 PM</span>
                 </div>
                 <div className="flex justify-between text-gray-600">
                   <span>Sunday</span>
-                  <span>Closed</span>
+                  <span>9:00 AM - 9:00 PM</span>
                 </div>
               </div>
             </div>
